@@ -20,5 +20,10 @@ public class HealthBarScript : MonoBehaviour
     void Update()
     {
         bar.fillAmount = value / maxValue;
+        
+        if(value <=0)
+        {
+            Debug.Log("Game Over");
+        }
     }
 }

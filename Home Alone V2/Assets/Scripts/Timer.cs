@@ -31,4 +31,14 @@ public class Timer : MonoBehaviour
             timeLeft++;
         }
     }
+
+    //make survival and entertainment bars decrease by 1 point per second
+    //IEnumerator DecreaseBar()
+    //{
+        //while (true)
+        //{
+            //yield return new WaitForSeconds(1); //60 seconds before changing the hour
+           // timeLeft++;
+        //}
+    //}
 }

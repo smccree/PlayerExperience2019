@@ -8,6 +8,7 @@ public class InteractionObject : MonoBehaviour
     public string message; //what object says to player
     public HealthBarScript survBar;
     public HealthBarScript entBar;
+    public GameObject label;
 
 
     public void DoInteraction()
