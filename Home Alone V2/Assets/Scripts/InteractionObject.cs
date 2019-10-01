@@ -22,37 +22,37 @@ public class InteractionObject : MonoBehaviour
         if (name == "CatFood")
         {
             survBar.value += 5f;
-            entBar.value -= 5f;
+            //entBar.value -= 5f;
         }
         
         //Water Bowl
         if (name == "WaterBowl")
         {
             survBar.value += 10f;
-            entBar.value -= 10f;
+            entBar.value -= 5f;
         }
         //Litter Box
         if (name == "LitterBox")
         {
             survBar.value += 15f;
-            entBar.value -= 15f;
+            entBar.value -= 10f;
         }
         //Sun Beam
         if (name == "SunBeam")
         {
-            survBar.value -= 5f;
+           // survBar.value -= 5f;
             entBar.value += 5f;
         }
         //Cat Toy
         if (name == "CatToy")
         {
-            survBar.value -= 10f;
+            survBar.value -= 5f;
             entBar.value += 10f;
         }
         //Scratch Post
         if (name == "ScratchPost")
         {
-            survBar.value -= 15f;
+            survBar.value -= 10f;
             entBar.value += 15f;
         }
     }

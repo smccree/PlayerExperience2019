@@ -13,7 +13,7 @@ public class HealthBarScript : MonoBehaviour
     void Start()
     {
         bar = GetComponent<Image>();
-        value = 50f;
+        value = 80f;
     }
 
     // Update is called once per frame

@@ -49,3 +49,6 @@ TagManager:
   - name: Player
     uniqueID: 2275062635
     locked: 0
+  - name: EndScreen
+    uniqueID: 165574777
+    locked: 0

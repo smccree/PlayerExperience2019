@@ -7,6 +7,7 @@ public class FreezePlayer : MonoBehaviour
     public float timeLeft = 2;
     public float timer;
     public bool freeze = false;
+    public bool gameover = false;
     public PlayerMovement moveScript;
     void Start()
     {
@@ -16,7 +17,7 @@ public class FreezePlayer : MonoBehaviour
     void Update()
     {
        
-        if (freeze == true)
+        if (freeze == true && gameover == false)
         {
             timer -= Time.deltaTime;
             moveScript.canMove = false;
@@ -28,6 +29,11 @@ public class FreezePlayer : MonoBehaviour
                 freeze = false;
             }
         }
-        // Else do nothing.
+
+        if (freeze == true && gameover == true)
+        {
+            moveScript.canMove = false; //game over - movement halted indefinitely.
+        }
+        
     }
 }
