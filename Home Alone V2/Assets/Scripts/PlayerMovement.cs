@@ -7,8 +7,16 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public Rigidbody2D rb;
     public Animator animator;
+    public bool canMove;
+    public GameObject Player;
 
     Vector2 movement;
+
+    void Start()
+    {
+        canMove = true;
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -17,9 +25,17 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("speed", movement.sqrMagnitude);
+        if (canMove == true)
+        { 
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+            animator.SetFloat("speed", movement.sqrMagnitude);
+        }
+        else
+        {
+            movement.x = 0; movement.y = 0;
+        }
+        
     }
 
     void FixedUpdate()

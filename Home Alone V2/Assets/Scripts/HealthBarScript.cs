@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class HealthBarScript : MonoBehaviour
 {
-    Image healthBar;
-    float maxHealth = 100f;
-    public static float health;
+    Image bar;
+    float maxValue = 100f;
+    public float value;
+
     // Start is called before the first frame update
     void Start()
     {
-        healthBar = GetComponent<Image>();
-        health = maxHealth;
+        bar = GetComponent<Image>();
+        value = 50f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthBar.fillAmount = health / maxHealth;
+        bar.fillAmount = value / maxValue;
     }
 }

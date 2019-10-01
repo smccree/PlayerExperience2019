@@ -6,6 +6,10 @@ public class PlayerInteract : MonoBehaviour
 {
     public GameObject currentInterobj = null; //object we are currently interacting with
     public InteractionObject currentInterobjScript = null;
+    public PlayerMovement moveScript;
+    public GameObject Player;
+
+    public FreezePlayer freezeScript;
 
     void Update()
     {
@@ -14,6 +18,9 @@ public class PlayerInteract : MonoBehaviour
             //Do something with the object
             //send message to object interacting with
             currentInterobj.SendMessage("DoInteraction");
+
+            currentInterobjScript.DoInteraction();
+            freezeScript.freeze = true;
 
             //check to see if the object has a message and talks
             if (currentInterobjScript.talks)
@@ -32,8 +39,9 @@ public class PlayerInteract : MonoBehaviour
             currentInterobj = collision.gameObject; //player is in range of interactable object
             currentInterobjScript = currentInterobj.GetComponent<InteractionObject>();
 
-            //testing
-            HealthBarScript.health -= 10f;
+            //test
+
+ 
         }
     }
 
@@ -48,4 +56,9 @@ public class PlayerInteract : MonoBehaviour
             
         }
     }
+
+
+    
+        
+    
 }
