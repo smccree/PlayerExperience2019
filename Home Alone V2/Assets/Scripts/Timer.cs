@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     public HealthBarScript entBar; //import the entertainment and survival bars so we can decrease them over time
     public HealthBarScript survBar;
     public GameOver end;
+    public PlayerMovement moveScript;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +42,7 @@ public class Timer : MonoBehaviour
         {
             yield return new WaitForSeconds(10); //10 seconds before changing the hour for now
             timeLeft++;
+            moveScript.speed = Random.Range(1f, 10f); //generate a random speed
         }
     }
 
