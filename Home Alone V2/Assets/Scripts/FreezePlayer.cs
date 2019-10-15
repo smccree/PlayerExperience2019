@@ -21,6 +21,9 @@ public class FreezePlayer : MonoBehaviour
         {
             timer -= Time.deltaTime;
             moveScript.canMove = false;
+
+            //pause interactions - testing
+
             if (timer < 0)
             {
                 // Can move again

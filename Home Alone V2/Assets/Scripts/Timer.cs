@@ -40,9 +40,8 @@ public class Timer : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(10); //10 seconds before changing the hour for now
+            yield return new WaitForSeconds(20); //10 seconds before changing the hour for now
             timeLeft++;
-            moveScript.speed = Random.Range(1f, 10f); //generate a random speed
         }
     }
 
@@ -51,9 +50,24 @@ public class Timer : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1); //1 point per second for now
-            survBar.value -= 1f;
-            entBar.value -= 1f;
+            yield return new WaitForSeconds(1); //2 points per second for now
+            survBar.value -= 2f;
+            entBar.value -= 2f;
+
+            //generate player speed based on fill amount of health bars - slowest when a bar is low
+            if(survBar.value <= 25f || entBar.value <= 25f)
+            {
+                moveScript.speed = Random.Range(1f, 3f);
+            }
+            else if(survBar.value <= 75f || entBar.value <= 75f)
+            {
+                moveScript.speed = Random.Range(4f, 6f);
+            }
+            else
+            {
+                moveScript.speed = Random.Range(7f, 10f);
+            }
+            
         }
     }
 }
