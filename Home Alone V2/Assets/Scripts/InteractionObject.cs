@@ -10,6 +10,11 @@ public class InteractionObject : MonoBehaviour
     public HealthBarScript entBar;
     public GameObject label;
 
+    public void Start()
+    {
+        //labels initialized invisible on startup
+        label.SetActive(false);
+    }
 
     public void DoInteraction()
     {

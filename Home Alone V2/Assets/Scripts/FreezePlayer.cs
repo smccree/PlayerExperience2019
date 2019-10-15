@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FreezePlayer : MonoBehaviour
 {
-    public float timeLeft = 1;//freeze for 1 second
+    public float timeLeft = 3;//freeze for 3 second
     public float timer;
     public bool freeze = false;
     public bool gameover = false;

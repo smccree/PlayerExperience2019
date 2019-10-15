@@ -16,7 +16,8 @@ public class PlayerInteract : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown ("Interact") && currentInterobj)
+        //if we are pressing the interact button, have an object target and aren't frozen:
+        if(Input.GetButtonDown ("Interact") && currentInterobj && moveScript.canMove)
         {
             //Do something with the object
             //send message to object interacting with
@@ -42,9 +43,9 @@ public class PlayerInteract : MonoBehaviour
             currentInterobj = collision.gameObject; //player is in range of interactable object
             currentInterobjScript = currentInterobj.GetComponent<InteractionObject>();
 
-            //make label disappear
+            //make label appear when in radius
             label = currentInterobjScript.label;
-            label.SetActive(false);
+            label.SetActive(true);
 
 
         }
@@ -57,7 +58,7 @@ public class PlayerInteract : MonoBehaviour
             if(collision.gameObject == currentInterobj)
             {
                 currentInterobj = null; //player has walked out of range of interactable object
-                label.SetActive(true); //label appears again
+                label.SetActive(false); //label disappears again
                 label = null; //no current label
             } 
             
