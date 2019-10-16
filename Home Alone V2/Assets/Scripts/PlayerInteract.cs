@@ -27,10 +27,10 @@ public class PlayerInteract : MonoBehaviour
             freezeScript.freeze = true;
 
             //check to see if the object has a message and talks
-            if (currentInterobjScript.talks)
-            {
-                currentInterobjScript.Talk();
-            }
+            //if (currentInterobjScript.talks)
+           // {
+           //     currentInterobjScript.Talk();
+           // }
         }
 
         
@@ -46,6 +46,9 @@ public class PlayerInteract : MonoBehaviour
             //make label appear when in radius
             label = currentInterobjScript.label;
             label.SetActive(true);
+
+            //we want to interact with this object - set movescript player
+            currentInterobjScript.moveScript = moveScript;
 
 
         }

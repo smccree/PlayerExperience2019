@@ -9,6 +9,7 @@ public class InteractionObject : MonoBehaviour
     public HealthBarScript survBar;
     public HealthBarScript entBar;
     public GameObject label;
+    public PlayerMovement moveScript; //for affecting player speed
 
     public void Start()
     {
@@ -26,39 +27,51 @@ public class InteractionObject : MonoBehaviour
         //Cat Food
         if (name == "CatFood")
         {
-            survBar.value += 5f;
-            //entBar.value -= 5f;
+            survBar.value += 20f;
+            entBar.value -= 10f;
+            //slow cat
+            moveScript.speed = 4f;
         }
         
         //Water Bowl
         if (name == "WaterBowl")
         {
-            survBar.value += 10f;
+            survBar.value += 15f;
             entBar.value -= 5f;
+            //default speed
+            moveScript.speed = 5f;
         }
         //Litter Box
         if (name == "LitterBox")
         {
-            survBar.value += 15f;
-            entBar.value -= 10f;
+            survBar.value += 10f;
+            entBar.value -= 2f;
+            //default speed
+            moveScript.speed = 5f;
         }
         //Sun Beam
         if (name == "SunBeam")
         {
-           // survBar.value -= 5f;
-            entBar.value += 5f;
+            survBar.value -= 10f;
+            entBar.value += 20f;
+            //default speed
+            moveScript.speed = 4f;
         }
         //Cat Toy
         if (name == "CatToy")
         {
-            survBar.value -= 5f;
+            survBar.value -= 2f;
             entBar.value += 10f;
+            //default speed
+            moveScript.speed = 5f;
         }
         //Scratch Post
         if (name == "ScratchPost")
         {
-            survBar.value -= 10f;
+            survBar.value -= 5f;
             entBar.value += 15f;
+            //default speed
+            moveScript.speed = 5f;
         }
     }
 

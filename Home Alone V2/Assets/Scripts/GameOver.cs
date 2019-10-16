@@ -12,6 +12,7 @@ public class GameOver : MonoBehaviour
     public HealthBarScript survBar;
     public HealthBarScript entBar;
     public bool over = false; //initialize game over is false
+    public bool stopclock; //for stopping the clock later
 
     //initialize images to be inactive
     void Start()
@@ -33,8 +34,8 @@ public class GameOver : MonoBehaviour
         //first freeze the player and stop the clock
         freezeScript.freeze = true;
         freezeScript.gameover = true;
-        clock.timeLeft = 17; // day naturally ends at 17
-        
+        //clock.timeLeft = 17; // day naturally ends at 17
+        stopclock = true;
         //the Game has finished for one of two reasons:
 
         //Reason One: No more time

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed;
     public Rigidbody2D rb;
     public Animator animator;
     public bool canMove;
@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         canMove = true;
-        
+        speed = 5f; //initialize speed
     }
 
     // Update is called once per frame

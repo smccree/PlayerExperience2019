@@ -26,15 +26,23 @@ public class Timer : MonoBehaviour
         countdownText.text = ("Current time: " + timeLeft + ":00");
         if(timeLeft >= 17)
         {
+            //you win
             StopCoroutine("LoseTime");
             StopCoroutine("DecreaseBar");
-            countdownText.text = "End of the Day!";
+            
             end.over = true; //day ended!
+            countdownText.text = "End of the Day!";
         }
-        if(survBar.value <= 0 || entBar.value <= 0)
+        if (survBar.value <= 0 || entBar.value <= 0)
         {
-            end.over = true; //game over!
+            //game over
+            StopCoroutine("LoseTime");
+            StopCoroutine("DecreaseBar");
+
+            end.over = true; //day ended!
+            countdownText.text = ("End time: " + timeLeft + ":00");
         }
+
     }
     IEnumerator LoseTime()
     {
@@ -54,20 +62,17 @@ public class Timer : MonoBehaviour
             survBar.value -= 2f;
             entBar.value -= 2f;
 
-            //generate player speed based on fill amount of health bars - slowest when a bar is low
-            if(survBar.value <= 25f || entBar.value <= 25f)
+            //slow the player's speed if the health bars get too low, increase speed if both bars are high
+            if (survBar.value <= 30f || entBar.value <= 30f)
             {
-                moveScript.speed = Random.Range(1f, 3f);
+                moveScript.speed = 2f;
             }
-            else if(survBar.value <= 75f || entBar.value <= 75f)
+
+            if (survBar.value >= 70f && entBar.value >= 70f)
             {
-                moveScript.speed = Random.Range(4f, 6f);
+                moveScript.speed = 10f;
             }
-            else
-            {
-                moveScript.speed = Random.Range(7f, 10f);
-            }
-            
+
         }
     }
 }
