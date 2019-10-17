@@ -9,6 +9,7 @@ public class GameOver : MonoBehaviour
     public FreezePlayer freezeScript;
     public GameObject endOfDay;
     public GameObject gameOver;
+    public GameObject returntostart; //go back to main menu button
     public HealthBarScript survBar;
     public HealthBarScript entBar;
     public bool over = false; //initialize game over is false
@@ -19,6 +20,7 @@ public class GameOver : MonoBehaviour
     {
         endOfDay.SetActive(false);
         gameOver.SetActive(false);
+        returntostart.SetActive(false);
     }
 
     //is it game over yet?
@@ -27,29 +29,33 @@ public class GameOver : MonoBehaviour
         if(over == true)
         {
             EndGame();
+            over = false;
         }
     }
     void EndGame()
     {
+        Debug.Log("starting end game");
         //first freeze the player and stop the clock
         freezeScript.freeze = true;
         freezeScript.gameover = true;
-        //clock.timeLeft = 17; // day naturally ends at 17
         stopclock = true;
         //the Game has finished for one of two reasons:
 
         //Reason One: No more time
-        if (survBar.value >= 0 && entBar.value >= 0)
+        if (clock.timeLeft >= 17)
         {
             Debug.Log("Out of Time!");
             endOfDay.SetActive(true);
+            returntostart.SetActive(true);
         }
 
         //Reason Two: Survival or Entertainment Bar reached 0
-        if (survBar.value <=0 || entBar.value <= 0)
+        else
         {
-            Debug.Log("Bar empty!");
+            Debug.Log("Game Over");
             gameOver.SetActive(true);
+            returntostart.SetActive(true);
         }
+        
     }
 }
