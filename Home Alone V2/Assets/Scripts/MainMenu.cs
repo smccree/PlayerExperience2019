@@ -27,6 +27,13 @@ public class MainMenu : MonoBehaviour
         //return to main menu from credits scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
+
+    public void NextDay()
+    {
+        //re-start the scene - play again!
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
+    }
+
     public void QuitGame()
     {
         //close the game - won't work in Unity Editor
